@@ -25,7 +25,7 @@ public class MovieActivity extends AppCompatActivity {
     //Gives access to the list of movies
     private static final String MOVIE_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
-    //the list which will store each movie mobject
+    //the list which will store each movie object
     List<Movie> movies;
 
     //Add RecyclerView support library to the gradle build file - DONE
