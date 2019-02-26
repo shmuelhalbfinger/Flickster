@@ -1,6 +1,7 @@
 package com.example.flickster.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -64,17 +65,19 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
         }
 
-        public void bind(final Movie movie) {
+        public void bind(Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
-            String imageUrl = movie.getPosterPath(); 
+            String imageUrl;
             //Reference the backdrop path of phone is in landscape
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackdropPath();
+                Glide.with(context).load(movie.getBackdropPath()).into(ivPoster);
             }
-
-            Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
-            // Add click listener on the whole row
+            else {
+                imageUrl = movie.getPosterPath();
+                Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
+            }
         }
     }
 }
