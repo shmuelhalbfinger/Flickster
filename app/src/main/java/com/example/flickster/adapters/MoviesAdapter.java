@@ -21,9 +21,11 @@ import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder> {
 
+    //Context gives a background for new objects of the class to be based off of
     Context context;
     List<Movie> movies;
 
+    //constructor to create the movie adapter
     public MoviesAdapter(Context context, List<Movie> movies) {
         this.context=context;
         this.movies=movies;

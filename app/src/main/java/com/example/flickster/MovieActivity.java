@@ -22,8 +22,10 @@ import cz.msebera.android.httpclient.Header;
 
 public class MovieActivity extends AppCompatActivity {
 
+    //Gives access to the list of movies
     private static final String MOVIE_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
+    //the list which will store each movie mobject
     List<Movie> movies;
 
     //Add RecyclerView support library to the gradle build file - DONE
@@ -31,14 +33,18 @@ public class MovieActivity extends AppCompatActivity {
     //Add a RecyclerView to your activity to display the items - DONE
     //Create a custom row layout XML file to visualize the item- DONE (item_movie.xml)
     //Create a RecyclerView.Adapter and ViewHolder to render the item - DONE
-    //Bind the adapter to the data source to populate the RecyclerView
+    //Bind the adapter to the data source to populate the RecyclerView - DONE
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //RecyclerView binds the java code with the xml layout
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
         movies=new ArrayList<>();
+
+
         final MoviesAdapter adapter = new MoviesAdapter(this, movies);
         rvMovies.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvMovies.setAdapter(adapter);
